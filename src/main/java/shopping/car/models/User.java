@@ -14,11 +14,6 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Setter
-@Getter
 @Entity
 @Table(name = "users")
 public class User implements Serializable{
@@ -30,28 +25,85 @@ public class User implements Serializable{
     private Integer userId;
 
 	@NotNull(message = "Username is required")
-	//@Max(value = 10, message = "Username must be less than 10 characters")
     private String username;
 
 	@JsonProperty( value = "password", access = JsonProperty.Access.WRITE_ONLY)
 	@NotNull(message = "Password is required")
-	//@Min(value = 8, message = "Password must be more than 8 characters")
     private String password;
 
 	@Email(message = "Email is invalid")
     private String email;
-	
-	//@Max(value = 50, message = "Firstname must be less than 50 characters")
+
     private String firstName;
 
-	//@Max(value = 50, message = "Lastname must be less than 50 characters")
     private String lastName;
 
-	//@Max(value = 150, message = "Address must be less than 150 characters")
     private String address;
 
 	@NotNull(message = "Phone number is required")
-	//@Min(value = 11, message = "Phone number must be 11 characters")
-	//@Max(value = 11, message = "Phone number must be 11 characters")
 	private String phoneNumber;
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 }
